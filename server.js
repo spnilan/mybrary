@@ -21,7 +21,8 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }))
 
 const mongoose = require('mongoose')
-mongoose.connect(process.env.DATABASE_URL, { 
+mongoose.connect(process.env.DATABASE_URL, {
+    useUnifiedTopology: true,
     useNewUrlParser: true })
 
 const db = mongoose.connection
